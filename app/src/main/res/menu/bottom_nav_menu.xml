@@ -21,4 +21,9 @@
         android:icon="@drawable/ic_mypage_24"
         android:title="@string/title_mypage" />
 
+    <item
+        android:id="@+id/navigation_minhalista"
+        android:icon="@drawable/ic_list_24"
+        android:title="@string/minha_lista" />
+
 </menu>

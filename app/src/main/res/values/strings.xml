@@ -7,4 +7,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_mypage">MyPage</string>
+    <string name="text_testing">Testando testes!</string>
+    <string name="minha_lista">Minha lista</string>
+    <string name="title_minhalista">Minha lista</string>
 </resources>

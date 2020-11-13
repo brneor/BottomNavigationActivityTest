@@ -28,4 +28,10 @@
         android:name="com.example.testapp2.ui.mypage.MypageFragment"
         android:label="@string/title_mypage"
         tools:layout="@layout/fragment_mypage" />
+
+    <fragment
+        android:id="@+id/navigation_minhalista"
+        android:name="com.example.testapp2.ui.list.ListFragment"
+        android:label="@string/title_minhalista"
+        tools:layout="@layout/fragment_item_list" />
 </navigation>
