@@ -38,7 +38,11 @@ public class DummyContent {
     }
 
     private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position), makeImage());
+    }
+
+    private static String makeImage() {
+        return "https://dictionary.cambridge.org/pt/images/thumb/house_noun_002_18270.jpg";
     }
 
     private static String makeDetails(int position) {
@@ -57,11 +61,13 @@ public class DummyContent {
         public final String id;
         public final String content;
         public final String details;
+        public final String image;
 
-        public DummyItem(String id, String content, String details) {
+        public DummyItem(String id, String content, String details, String image) {
             this.id = id;
             this.content = content;
             this.details = details;
+            this.image = image;
         }
 
         @Override

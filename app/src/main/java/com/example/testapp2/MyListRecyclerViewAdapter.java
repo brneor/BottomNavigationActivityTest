@@ -2,13 +2,20 @@ package com.example.testapp2;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.testapp2.dummy.DummyContent.DummyItem;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -36,6 +43,24 @@ public class MyListRecyclerViewAdapter extends RecyclerView.Adapter<MyListRecycl
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).content);
+
+        // Seta a imagem
+        if (android.os.Build.VERSION.SDK_INT > 9)
+        {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+        try {
+//            TODO: é necessário implementar um loader ou utilizar uma biblioteca
+//              para evitar sobrecarregar o recycler view e melhorar a usabilidade.
+            System.out.println("URL: " + mValues.get(position).image);
+            URL url = new URL(mValues.get(position).image);
+            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            holder.mImgView.setImageBitmap(bmp);
+        } catch (IOException e) {
+            System.out.println("Não carregou a imagem...");
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -47,6 +72,7 @@ public class MyListRecyclerViewAdapter extends RecyclerView.Adapter<MyListRecycl
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
+        public final ImageView mImgView;
         public DummyItem mItem;
 
         public ViewHolder(View view) {
@@ -54,6 +80,7 @@ public class MyListRecyclerViewAdapter extends RecyclerView.Adapter<MyListRecycl
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
+            mImgView = (ImageView) view.findViewById(R.id.image_view);
         }
 
         @Override
