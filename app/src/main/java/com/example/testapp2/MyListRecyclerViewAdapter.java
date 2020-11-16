@@ -50,17 +50,17 @@ public class MyListRecyclerViewAdapter extends RecyclerView.Adapter<MyListRecycl
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-        try {
-//            TODO: é necessário implementar um loader ou utilizar uma biblioteca
-//              para evitar sobrecarregar o recycler view e melhorar a usabilidade.
-            System.out.println("URL: " + mValues.get(position).image);
-            URL url = new URL(mValues.get(position).image);
-            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            holder.mImgView.setImageBitmap(bmp);
-        } catch (IOException e) {
-            System.out.println("Não carregou a imagem...");
-            e.printStackTrace();
-        }
+//        try {
+////            TODO: é necessário implementar um loader ou utilizar uma biblioteca
+////              para evitar sobrecarregar o recycler view e melhorar a usabilidade.
+//            System.out.println("URL: " + mValues.get(position).image);
+//            URL url = new URL(mValues.get(position).image);
+//            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//            holder.mImgView.setImageBitmap(bmp);
+//        } catch (IOException e) {
+//            System.out.println("Não carregou a imagem...");
+//            e.printStackTrace();
+//        }
     }
 
     @Override
