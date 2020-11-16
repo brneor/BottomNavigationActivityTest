@@ -30,6 +30,7 @@ public class MypageFragment extends Fragment {
         final TextView textView = root.findViewById(R.id.text_mypage);
         final TextView txtTest = root.findViewById(R.id.text_test);
         final ImageView imgView = root.findViewById(R.id.image_view_mypage);
+
         mypageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -37,7 +38,13 @@ public class MypageFragment extends Fragment {
             }
         });
 
-        txtTest.setText(R.string.text_testing);
+        mypageViewModel.getTxtTeste().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                txtTest.setText(s);
+            }
+        });
+
         // Seta a imagem
         if (android.os.Build.VERSION.SDK_INT > 9)
         {
